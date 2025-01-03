@@ -39,7 +39,6 @@ bar {
 }
 
 exec_always {
-     gsettings set $gnome-schema gtk-theme Dracula
      nm-applet
      swww-daemon
 }
@@ -48,7 +47,7 @@ exec_always {
 
 exec {
   swayidle
-  trash-empty 5
+  trash-empty -f 5
 }
 
 
@@ -155,6 +154,10 @@ bindsym Right resize grow width 20px
 bindsym Return mode "default"
 bindsym Escape mode "default"
 }
+
+# modules used for the icons on waybar
+# exec sworkstyle &> /tmp/sworkstyle.log
+exec_always --no-startup-id workstyle &> /tmp/workstyle.log
 
 # includes
 include /etc/sway/config.d/*

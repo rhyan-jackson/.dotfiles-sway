@@ -77,7 +77,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-syntax-highlighting you-should-use zsh-bat git python archlinux)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting you-should-use zsh-bat git python archlinux virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,6 +116,9 @@ alias fetch="nerdfetch"
 alias sp="sudo pacman"
 alias c="clear"
 alias rm='echo "This is not the command you are looking for."; false'
+alias aed='cd ~/leci-ua/2.1/AED/trab2-aed/'
+alias ls='exa --icons --group-directories-first'
+alias tp='trash-put'
 # alias fetch="pokemonfetch"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -124,6 +127,8 @@ alias rm='echo "This is not the command you are looking for."; false'
 # Environment variables
 export PATH=$PATH:/home/rhyan/bin:/home/rhyan/.local/bin:/home/rhyan/.cargo/bin
 export LC_ALL="C"
+export MANPAGER="most"
+export VIRTUAL_ENV_DISABLE_PROMPT=
 
 # pnpm
 export PNPM_HOME="/home/rhyan/.local/share/pnpm"
