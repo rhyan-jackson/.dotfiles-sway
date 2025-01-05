@@ -7,27 +7,42 @@ effect-vignette=1:1
 font="Inter"
 indicator
 indicator-radius=100
-indicator-thickness=20
-line-color=#d79921
-ring-color=#282828
-inside-color=#3c3836
-key-hl-color=#d65d0e
-separator-color=#ebdbb2
-text-color=#ebdbb2
-text-caps-lock-color=#fb4934
-line-ver-color=#98971a
-ring-ver-color=#98971a
-inside-ver-color=#3c3836
-text-ver-color=#ebdbb2
-ring-wrong-color=#cc241d
-text-wrong-color=#cc241d
-inside-wrong-color=#3c3836
-line-wrong-color=#cc241d
-inside-clear-color=#3c3836
-text-clear-color=#fabd2f
-ring-clear-color=#83a598
-line-clear-color=#83a598
-bs-hl-color=#458588
+indicator-thickness=10
+
+# Primary Colors from Palette
+line-color=#d0524f
+ring-color=#c41f5b
+inside-color=#320f30
+
+# Highlight Colors
+key-hl-color=#fd8b4b
+bs-hl-color=#d0524f
+
+# Separator and Text Colors
+separator-color=#24122a
+text-color=#c41f5b
+text-caps-lock-color=#d0524f
+
+# Verification Colors
+line-ver-color=#d0524f
+ring-ver-color=#c41f5b
+inside-ver-color=#320f30
+text-ver-color=#c41f5b
+
+# Wrong Password Colors
+ring-wrong-color=#c41f5b
+text-wrong-color=#c41f5b
+inside-wrong-color=#320f30
+line-wrong-color=#c41f5b
+
+# Clear State Colors
+inside-clear-color=#320f30
+text-clear-color=#d0524f
+ring-clear-color=#c41f5b
+line-clear-color=#c41f5b
+
+# Additional Settings
+bs-hl-color=#d0524f
 grace=4
 grace-no-mouse
 grace-no-touch
@@ -35,4 +50,3 @@ datestr=%a, %B %e
 timestr=%I:%M %p
 fade-in=0.1
 ignore-empty-password
-

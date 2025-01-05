@@ -1,21 +1,26 @@
-font pango:SpaceMono Nerd Font 14
+font pango:MesloLGLDZ Nerd Font 14
 
 # output * bg #9b9b7a solid_color
 
-gaps inner 5
-gaps outer 5
+gaps inner 6
+gaps outer 6
 
-default_border pixel 1
-default_floating_border pixel 2
+default_border pixel 2
+default_floating_border pixel 1
 
 # class border backgr. text indicator child_border
-#client.<class> <border> <background> <text> <indicator> <child_border>
+#client.<class> <border> <background> <text> [<indicator> [<child_border>]]
+# - border
 
-client.focused #303536 #e3e3e3 #505556 #e3e3e3
-client.focused_inactive #303536 #303536 #d4be98 #303536 #303536
-client.unfocused #0a0b0b #303536 #d4be98 #0a0b0b #0a0b0b
-client.urgent #d8a657 #303536 #1d2021 #d8a657 #d8a657
-client.placeholder #7daea3 #303536 #1d2021 #7daea3 #7daea3
+set $yellow #fd8b4b
+set $pink #C41F5B
+set $white #ffffff
+set $black #000000
+
+client.focused $pink $pink $white $yellow
+client.focused_inactive $pink $pink $white $yellow
+client.unfocused $black $black $white $yellow
+client.urgent $yellow $yellow $white $white
 
 # Wallpaper 
 
@@ -24,15 +29,20 @@ bindgesture swipe:3:right workspace prev
 bindgesture swipe:3:left workspace next
 
 # swayfx
+
+# blur
 blur enable
-blur_xray enable
-blur_passes 2
-blur_radius 5
+blur_xray disable
+blur_passes 3
+blur_radius 2
 blur_noise 0.02
-default_dim_inactive 0.1
+blur_contrast 1
+blur_saturation 1.1
+default_dim_inactive 0.25
 shadows enable
-corner_radius 8
-layer_effects "waybar" shadows enable; corner_radius 8; blur enable
+corner_radius 4
+# layer_effects "waybar" blur enable;
+# layer_effects "waybar" blur_xray enable;
 
 bar {
   swaybar_command waybar
@@ -47,7 +57,7 @@ exec_always {
 
 exec {
   swayidle
-  trash-empty -f 5
+  trash-empty -f 10
 }
 
 
@@ -141,22 +151,21 @@ bindsym $mod+a focus parent
 bindsym $mod+r mode "resize"
 
 mode "resize" {
-bindsym $left resize shrink width 20px
-bindsym $down resize grow height 20px
-bindsym $up resize shrink height 20px
-bindsym $right resize grow width 20px
+bindsym $left resize shrink width 30px
+bindsym $down resize grow height 30px
+bindsym $up resize shrink height 30px
+bindsym $right resize grow width 30px
 
-bindsym Left resize shrink width 20px
-bindsym Down resize grow height 20px
-bindsym Up resize shrink height 20px
-bindsym Right resize grow width 20px
+bindsym Left resize shrink width 30px
+bindsym Down resize grow height 30px
+bindsym Up resize shrink height 30px
+bindsym Right resize grow width 30px
 
 bindsym Return mode "default"
 bindsym Escape mode "default"
 }
 
 # modules used for the icons on waybar
-# exec sworkstyle &> /tmp/sworkstyle.log
 exec_always --no-startup-id workstyle &> /tmp/workstyle.log
 
 # includes

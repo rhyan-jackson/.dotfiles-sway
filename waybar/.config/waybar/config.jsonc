@@ -1,205 +1,119 @@
-// -*- mode: jsonc -*-
 {
   "layer": "top", // Waybar at top layer
-  // "position": "bottom", // Waybar position (top|bottom|left|right)
-  "height": 30, // Waybar height (to be removed for auto height)
-  "width": 1900, // Waybar width
-  "spacing": 4, // Gaps between modules (4px)
-  "margin-top": 4, // Margin on top
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 35, // Waybar height
+  "width": 1600, // Waybar width
+  "fixed-center": true,
   // Choose the order of the modules
   "modules-left": [
-    "sway/mode",
-    "sway/scratchpad",
-    "custom/spotify"
+    "sway/workspaces"
   ],
   "modules-center": [
-    "sway/workspaces"
-    // "sway/window"
+    "clock",
+    "sway/mode"
   ],
   "modules-right": [
-    //"mpd",
-    //"idle_inhibitor",
-    "pulseaudio",
+    "idle_inhibitor",
     "backlight",
-    // "network",
-    "bluetooth",
-    "tray",
-    //"power-profiles-daemon",
-    //"cpu",
-    //"memory",
-    //"temperature",
-    //"keyboard-state",
-    //"sway/language",
-    "clock",
+    "pulseaudio",
     "battery",
+    "bluetooth",
+    "custom/updates",
+    "tray"
   ],
-  // Modules configuration
-  // "sway/workspaces": {
-  //     "disable-scroll": true,
-  //     "all-outputs": true,
-  //     "warp-on-scroll": false,
-  //     "format": "{name}: {icon}",
-  //     "format-icons": {
-  //         "1": "",
-  //         "2": "",
-  //         "3": "",
-  //         "4": "",
-  //         "5": "",
-  //         "urgent": "",
-  //         "focused": "",
-  //         "default": ""
-  //     }
-  // },
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": "",
-    },
+  // We're using swayest to manage the icons for apps: https://github.com/Lyr-7D1h/swayest_workstyle?tab=readme-ov-file
+  "sway/workspaces": {
+    "format": "{icon}",
   },
   "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>",
-  },
-  "sway/window": {
-    "max-length": 50,
-    "rewrite": {
-      "(.*) - Mozilla Firefox": "🌎 $1",
-      "(.*) - NVIM": " $1",
-    },
-  },
-  "sway/scratchpad": {
-    "format": "{icon} {count}",
-    "show-empty": false,
-    "format-icons": [
-      "",
-      ""
-    ],
-    "tooltip": true,
-    "tooltip-format": "{app}: {title}",
-  },
-  "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 5,
-    "consume-icons": {
-      "on": " ",
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " ",
-    },
-    "repeat-icons": {
-      "on": " ",
-    },
-    "single-icons": {
-      "on": "1 ",
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": "",
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)",
+    "format": "<span style=\"italic\">{}</span>"
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
-      "activated": "",
-      "deactivated": "",
-    },
+      "activated": " ",
+      "deactivated": " "
+    }
   },
   "tray": {
-    "icon-size": 21,
-    "spacing": 15,
+    "icon-size": 19,
+    "spacing": 12
   },
   "clock": {
-    "timezone": "Europe/Lisbon",
-    "format": "{:%H:%M} ",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%d/%m/%Y} ",
-  },
-  "cpu": {
-    "format": "{usage}% ",
-    "tooltip": false,
+    "format": "{:%H:%M} ",
+    "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#270d2c'><b>{}</b></span>",
+        "days": "<span color='#fb4d5d'><b>{}</b></span>",
+        "weeks": "<span color='#fde032'><b>W{}</b></span>",
+        "weekdays": "<span color='#f73666'><b>{}</b></span>",
+        "today": "<span color='#451830'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode"
+    }
   },
   "memory": {
-    "format": "{}% ",
+    "format": " {}% "
+  },
+  "cpu": {
+    "format": " {usage}% "
+  },
+  "disk": {
+    "interval": 30,
+    "format": " {percentage_free}%   ",
   },
   "temperature": {
     // "thermal-zone": 2,
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ],
+    // "format-critical": "{temperatureC}°C ",
+    "format": "{temperatureF}° "
   },
   "backlight": {
-    // "device": "acpi_video1",
-    "format": "{percent} {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+    "scroll-step": 0.4,
+    "format": "{percent}% {icon}",
+    "states": [
+      0,
+      50
     ],
+    "format-icons": [
+      "",
+      ""
+    ]
   },
   "battery": {
     "states": {
-      // "good": 95,
+      "good": 95,
       "warning": 30,
-      "critical": 15,
+      "critical": 15
     },
-    "format": "{capacity}% {icon}",
-    "format-full": "{icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
+    "format": "{icon}{capacity}% ",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
     "format-icons": [
-      "󰁺",
-      "󰁼",
-      "󰁾",
-      "󰂀",
-      "󰁹"
-    ],
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   "battery#bat2": {
-    "bat": "BAT2",
-  },
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": "",
-    },
+    "bat": "BAT2"
   },
   "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid}  ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
+    "format-wifi": " ",
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "on-click-right": "sh .config/waybar/nmtui_script.sh"
+    "interval": 7
   },
   "bluetooth": {
     // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
@@ -209,10 +123,10 @@
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "sh .config/waybar/bluetui_script.sh",
+    "on-click": "sh .config/waybar/modules/bluetui_script.sh",
   },
   "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
+    "scroll-step": 0.4,
     "format": "{volume}% {icon}",
     "format-bluetooth": " {volume}%",
     "format-bluetooth-muted": "  ",
@@ -236,26 +150,17 @@
     "on-click": "pavucontrol",
   },
   "custom/media": {
-    "format": "{icon} {}",
-    "return-type": "json",
-    "max-length": 40,
-    "format-icons": {
-      "spotify": "",
-      "default": "🎜",
-    },
-  },
-  "custom/spotify": {
     "format": "{}",
-    "escape": true,
+    "exec": "$HOME/.config/waybar/modules/mediaplayer.sh" // Script in resources folder
+  },
+  "custom/updates": {
+    "format": "{} {icon}",
     "return-type": "json",
-    "max-length": 30,
-    //"interval": 10, // Remove this if your script is endless and write in loop
-    "on-click": "playerctl -p spotify play-pause",
-    "on-click-right": "killall spotify",
-    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-    "on-scroll-up": "playerctl -p spotify next",
-    "on-scroll-down": "playerctl -p spotify previous",
-    "exec": "/usr/bin/python3 /home/rhyan/.config/waybar/mediaplayer.py --player spotify", // Script in resources/custom_modules folder
-    "exec-if": "pgrep spotify"
+    "format-icons": {
+      "has-updates": "",
+      "updated": ""
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --no-zero-output --interval-seconds 5 --network-interval-seconds 300"
   }
 }
