@@ -1,0 +1,144 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File - Fundo Transparente
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+* {
+    /* Resolution : 1920x1080 */
+    mainbox-spacing:             50px;
+    mainbox-margin:              0px 370px;
+    message-margin:              0px 250px;
+    message-padding:             15px;
+    message-border-radius:       100%;
+    listview-spacing:            25px;
+    element-padding:             35px;
+    element-border-radius:       2px;
+    element-margin:              10px;
+
+    prompt-font:                 "FantasqueSansM Nerd Font regular 42";
+    textbox-font:                "FantasqueSansM Nerd Font regular 20";
+    element-text-font:           "feather Bold 38";
+
+    /* Removido os gradientes para simplificar o tema transparente */
+    
+    background-window:           transparent; /* Alterado para transparente */
+    background-normal:           transparent; /* Alterado para transparente */
+    background-selected:         transparent; /* Alterado para transparente */
+    foreground-normal:           white;
+    foreground-selected:         white;
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  true;
+    cursor:                      "default";
+    background-color:            transparent; /* Garantir transparência */
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     var(mainbox-spacing);
+    margin:                      var(mainbox-margin);
+    background-color:            transparent;
+    children:                    [ "dummy", "inputbar", "listview", "message", "dummy" ];
+}
+
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    background-color:            transparent;
+    children:                    [ "dummy", "prompt", "dummy"];
+}
+
+dummy {
+    background-color:            transparent;
+}
+
+prompt {
+    enabled:                     true;
+    font:                        var(prompt-font);
+    background-color:            transparent;
+    text-color:                  var(foreground-normal);
+}
+
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      var(message-margin);
+    padding:                     var(message-padding);
+    border-radius:               var(message-border-radius);
+    background-color:            transparent; /* Alterado para transparente */
+    text-color:                  var(foreground-normal);
+}
+
+textbox {
+    font:                        var(textbox-font);
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    expand:                      false;
+    columns:                     5;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+
+    spacing:                     var(listview-spacing);
+    background-color:            #24122A60; /* Já estava definido */
+    border-radius:               4px;
+    border:                      2px;
+    border-color:                #fd8b4b;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     var(element-padding);
+    border-radius:               var(element-border-radius);
+    background-color:            transparent; /* Alterado para transparente */
+    text-color:                  var(foreground-normal);
+    cursor:                      pointer;
+    margin:                      var(element-margin);
+}
+
+element-text {
+    font:                        var(element-text-font);
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element selected.normal {
+    background-color:            transparent; /* Alterado para transparente */
+    border-color:                #C41F5B;
+    border:                      4px;
+    text-color:                  #C41F5B;
+}

@@ -1,0 +1,134 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+@import                          "colors.rasi"
+@import                          "fonts.rasi"
+
+/*****----- Global Properties -----*****/
+* {
+  mainbox-spacing:             50px;
+  mainbox-margin:              0px 370px;
+  message-margin:              0px 250px;
+  message-padding:             15px;
+  message-border-radius:       100%;
+  listview-spacing:            25px;
+  element-padding:             35px;
+  element-border-radius:       2px;
+  element-margin:              10px;
+
+  prompt-font:                 "FantasqueSansM Nerd Font regular 42";
+  textbox-font:                "FantasqueSansM Nerd Font regular 20";
+  element-text-font:           "feather Bold 38";
+
+
+  background-window:           transparent;
+  background-normal:           transparent;
+  background-selected:         transparent;
+  foreground-normal:           white;
+  foreground-selected:         white;
+}
+
+/*****----- Main Window -----*****/
+window {
+    /* properties for window widget */
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       400px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    /* properties for all widgets */
+    enabled:                     true;
+    cursor:                      "default";
+    background-color:            @background;
+
+    border-radius:               4px;
+    border:                      2px;
+    border-color:                #fd8b4b;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:                     20px;
+    padding:                     20px;
+    background-color:            transparent;
+    children:                    [ "message", "listview" ];
+}
+
+/*****----- Message -----*****/
+message {
+    margin:                      0px;
+    padding:                     20px;
+    border-radius:               4px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    placeholder-color:           @foreground;
+    blink:                       true;
+    markup:                      true;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    expand:                      false;
+    columns:                     2;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+
+    spacing:                     var(listview-spacing);
+    background-color:            inherit; /* Já estava definido */
+    border-radius:               4px;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     var(element-padding);
+    border-radius:               var(element-border-radius);
+    background-color:            transparent; /* Alterado para transparente */
+    text-color:                  var(foreground-normal);
+    cursor:                      pointer;
+    margin:                      var(element-margin);
+}
+
+element-text {
+    font:                        var(element-text-font);
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element selected.normal {
+    background-color:            transparent; /* Alterado para transparente */
+    border-color:                #C41F5B;
+    border:                      4px;
+    text-color:                  #C41F5B;
+}

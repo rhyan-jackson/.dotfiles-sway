@@ -1,0 +1,13 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Fonts
+ *
+ **/
+
+* {
+    //font: "MesloLGLDZ Nerd Font 14";
+    font: "FantasqueSansM Nerd Font 18";
+}
