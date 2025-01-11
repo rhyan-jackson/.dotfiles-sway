@@ -81,7 +81,6 @@ plugins=(
   git-extras
   gnu-utils
   python
-  safe-paste
   sudo
   themes
   virtualenv

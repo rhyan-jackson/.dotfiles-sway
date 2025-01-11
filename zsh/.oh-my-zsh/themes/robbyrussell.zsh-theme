@@ -7,8 +7,8 @@ PROMPT+='$(git_prompt_info) '
 # Git Prompt Customization
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%} "
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%} "
 
 # Function to Display Git Branch and Status
 git_prompt_info() {
@@ -18,10 +18,10 @@ git_prompt_info() {
 
     if git diff --quiet && git diff --cached --quiet; then
       # Clean repository: Green color with ✔ icon, including closing parenthesis
-      echo "%{$fg_bold[green]%}($branch ${ZSH_THEME_GIT_PROMPT_CLEAN})%{$reset_color%}"
+      echo "%{$fg_bold[green]%}($branch) ${ZSH_THEME_GIT_PROMPT_CLEAN}%{$reset_color%}"
     else
       # Dirty repository: Red color with ✗ icon, including closing parenthesis
-      echo "%{$fg_bold[red]%}($branch ${ZSH_THEME_GIT_PROMPT_DIRTY})%{$reset_color%}"
+      echo "%{$fg_bold[red]%}($branch) ${ZSH_THEME_GIT_PROMPT_DIRTY}%{$reset_color%}"
     fi
   fi
 }
