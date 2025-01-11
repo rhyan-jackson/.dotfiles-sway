@@ -4,10 +4,10 @@ clock
 screenshot
 effect-blur=15x15
 effect-vignette=1:1
-font="Inter"
+font=FantasqueSansM Nerd Font
 indicator
-indicator-radius=100
-indicator-thickness=10
+indicator-radius=110
+indicator-thickness=5
 
 # Primary Colors from Palette
 line-color=#d0524f
@@ -15,8 +15,8 @@ ring-color=#c41f5b
 inside-color=#320f30
 
 # Highlight Colors
-key-hl-color=#fd8b4b
-bs-hl-color=#d0524f
+key-hl-color=#ffffff
+bs-hl-color=#ffffff
 
 # Separator and Text Colors
 separator-color=#24122a

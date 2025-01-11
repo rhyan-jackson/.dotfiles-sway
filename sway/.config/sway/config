@@ -1,4 +1,4 @@
-font pango:MesloLGLDZ Nerd Font 14
+font pango:FantasqueSansM Nerd Font 14
 
 # output * bg #9b9b7a solid_color
 
@@ -43,6 +43,10 @@ shadows enable
 corner_radius 4
 # layer_effects "waybar" blur enable;
 # layer_effects "waybar" blur_xray enable;
+layer_effects "rofi" blur enable; blur_noise 0.02; blur_radius 2; blur_passes 3; blur_ignore_transparent enable; blur_brightness 0.75; corner_radius 4
+
+
+
 
 bar {
   swaybar_command waybar
@@ -74,8 +78,8 @@ set $down j
 set $up k
 set $right l
 set $term alacritty --working-directory /home/rhyan/
-set $menu /home/rhyan/.config/rofi/launchers/type-4/launcher.sh | xargs swaymsg exec --
-set $power_menu /home/rhyan/.config/rofi/powermenu/type-2/powermenu.sh
+set $menu /home/rhyan/.config/rofi/custom/ashen/launcher/launcher.sh | xargs swaymsg exec 
+set $power_menu /home/rhyan/.config/rofi/custom/ashen/powermenu/powermenu.sh
 
 # printing keybinds
 bindsym Control+Print exec sway-screenshot -m output -o ~/.screenshots 
